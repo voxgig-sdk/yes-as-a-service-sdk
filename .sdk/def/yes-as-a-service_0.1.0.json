@@ -1,0 +1,31 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FastAPI",
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "https://yesno.wtf"
+    }
+  ],
+  "paths": {
+    "/yes": {
+      "get": {
+        "summary": "Get Random Reason",
+        "description": "Return a random affirmation.",
+        "operationId": "get_random_reason_yes_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

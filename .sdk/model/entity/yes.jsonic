@@ -1,0 +1,29 @@
+# Entity: yes
+
+main: kit: entity: yes: {
+
+  alias: field: {}
+
+  name: "yes"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/yes"
+          parts: [
+            "yes"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
