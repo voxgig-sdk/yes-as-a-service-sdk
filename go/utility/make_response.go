@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/yes-as-a-service-sdk/core"
+import "github.com/voxgig-sdk/yes-as-a-service-sdk/go/core"
 
 func makeResponseUtil(ctx *core.Context) (*core.Response, error) {
 	if ctx.Out["response"] != nil {

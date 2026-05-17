@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/yes-as-a-service-sdk"
-	"github.com/voxgig-sdk/yes-as-a-service-sdk/core"
+	sdk "github.com/voxgig-sdk/yes-as-a-service-sdk/go"
+	"github.com/voxgig-sdk/yes-as-a-service-sdk/go/core"
 )
 
 func TestYesDirect(t *testing.T) {

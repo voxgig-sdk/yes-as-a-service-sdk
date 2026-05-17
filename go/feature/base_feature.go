@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/yes-as-a-service-sdk/core"
+	"github.com/voxgig-sdk/yes-as-a-service-sdk/go/core"
 )
 
 type BaseFeature struct {

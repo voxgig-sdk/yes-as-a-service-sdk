@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/yes-as-a-service-sdk"
+	sdk "github.com/voxgig-sdk/yes-as-a-service-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/yes-as-a-service-sdk/go/utility/struct"
 )
 
 func TestPrimaryUtility(t *testing.T) {

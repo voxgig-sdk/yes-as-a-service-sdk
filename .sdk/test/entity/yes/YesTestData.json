@@ -1,9 +1,15 @@
 {
   "existing": {
     "yes": {
-      "YES00": {},
-      "YES01": {},
-      "YES02": {}
+      "YES00": {
+        "id": "YES00"
+      },
+      "YES01": {
+        "id": "YES01"
+      },
+      "YES02": {
+        "id": "YES02"
+      }
     }
   },
   "new": {

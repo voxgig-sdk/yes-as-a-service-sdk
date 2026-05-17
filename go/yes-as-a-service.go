@@ -1,10 +1,10 @@
 package voxgigyesasaservicesdk
 
 import (
-	"github.com/voxgig-sdk/yes-as-a-service-sdk/core"
-	"github.com/voxgig-sdk/yes-as-a-service-sdk/entity"
-	"github.com/voxgig-sdk/yes-as-a-service-sdk/feature"
-	_ "github.com/voxgig-sdk/yes-as-a-service-sdk/utility"
+	"github.com/voxgig-sdk/yes-as-a-service-sdk/go/core"
+	"github.com/voxgig-sdk/yes-as-a-service-sdk/go/entity"
+	"github.com/voxgig-sdk/yes-as-a-service-sdk/go/feature"
+	_ "github.com/voxgig-sdk/yes-as-a-service-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

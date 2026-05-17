@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/yes-as-a-service-sdk"
-	"github.com/voxgig-sdk/yes-as-a-service-sdk/core"
+	sdk "github.com/voxgig-sdk/yes-as-a-service-sdk/go"
+	"github.com/voxgig-sdk/yes-as-a-service-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/yes-as-a-service-sdk/go/utility/struct"
 )
 
 func TestYesEntity(t *testing.T) {
