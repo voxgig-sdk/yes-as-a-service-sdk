@@ -31,9 +31,7 @@ loading a specific record.
 ```ruby
 require_relative "YesAsAService_sdk"
 
-client = YesAsAServiceSDK.new({
-  "apikey" => ENV["YES-AS-A-SERVICE_APIKEY"],
-})
+client = YesAsAServiceSDK.new({})
 ```
 
 ### 3. Load a yes
@@ -121,7 +119,6 @@ Create a `.env.local` file at the project root:
 
 ```
 YES-AS-A-SERVICE_TEST_LIVE=TRUE
-YES-AS-A-SERVICE_APIKEY=<your-key>
 ```
 
 Then run:
@@ -144,7 +141,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `String` | API key for authentication. |
 | `base` | `String` | Base URL of the API server. |
 | `prefix` | `String` | URL path prefix prepended to all requests. |
 | `suffix` | `String` | URL path suffix appended to all requests. |

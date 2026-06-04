@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://yesno.wtf",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },

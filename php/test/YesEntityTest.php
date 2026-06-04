@@ -85,7 +85,6 @@ function yes_basic_setup($extra)
         "YESASASERVICE_TEST_YES_ENTID" => $idmap,
         "YESASASERVICE_TEST_LIVE" => "FALSE",
         "YESASASERVICE_TEST_EXPLAIN" => "FALSE",
-        "YESASASERVICE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +96,6 @@ function yes_basic_setup($extra)
     if ($env["YESASASERVICE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["YESASASERVICE_APIKEY"],
             ],
             $extra ?? [],
         ]);

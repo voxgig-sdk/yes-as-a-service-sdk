@@ -11,8 +11,26 @@ main: {
       ]
       title: "FastAPI"
       version: "0.1.0"
+      tagline: "Get a random yes, no, or maybe answer paired with a reaction GIF"
+      homepage: "https://yesno.wtf"
+      docs_url: "https://yesno.wtf/api"
+      license_short: "Licence not specified by the API"
+      license_md: `- The API does not publish an explicit licence on its homepage
+- GIF assets are hosted by yesno.wtf; treat them as the operators' content and credit the source when reusing
+- Not affiliated with Voxgig; this SDK is a generated client over the public endpoint`
+      about_md: `[YesNo](https://yesno.wtf) is a tiny public API that answers a single question: yes, no, or (rarely) maybe. Each response also includes a reaction GIF, making it a popular pick for tutorials, demos, and quick decision toys. The service is run by Mo, Martin, and Michi.
+
+What you get from the API:
+
+- A single endpoint, \`GET /api\`, returning JSON with an \`answer\`, a \`forced\` flag, and an \`image\` URL pointing to an animated GIF on \`yesno.wtf/assets/...\`
+- An optional \`force\` query parameter accepting \`yes\`, \`no\`, or \`maybe\` to pin the answer for testing or scripted demos
+- A built-in surprise: roughly one response in every ten thousand comes back as \`maybe\`
+
+The service is unauthenticated and intended for casual use. No API key, no account, no documented rate limits — just a \`GET\` against \`https://yesno.wtf/api\`.`
+      entity_desc: {
+        yes: "The single answer resource exposed by the API, served from `GET /api` and returning a yes/no/maybe verdict together with a matching GIF URL."
+      }
+      auth: false
     }
   }
-}
-
 }
