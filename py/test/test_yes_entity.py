@@ -91,6 +91,7 @@ def _yes_basic_setup(extra):
         "YESASASERVICE_TEST_YES_ENTID": idmap,
         "YESASASERVICE_TEST_LIVE": "FALSE",
         "YESASASERVICE_TEST_EXPLAIN": "FALSE",
+        "YESASASERVICE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -101,6 +102,7 @@ def _yes_basic_setup(extra):
     if env.get("YESASASERVICE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("YESASASERVICE_APIKEY"),
             },
             extra or {},
         ])

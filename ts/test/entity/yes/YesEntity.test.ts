@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'YES_AS_A_SERVICE_TEST_YES_ENTID': idmap,
     'YES_AS_A_SERVICE_TEST_LIVE': 'FALSE',
     'YES_AS_A_SERVICE_TEST_EXPLAIN': 'FALSE',
+    'YES_AS_A_SERVICE_APIKEY': 'NONE',
   })
 
   idmap = env['YES_AS_A_SERVICE_TEST_YES_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new YesAsAServiceSDK(merge([
       {
+        apikey: env.YES_AS_A_SERVICE_APIKEY,
       },
       extra
     ]))

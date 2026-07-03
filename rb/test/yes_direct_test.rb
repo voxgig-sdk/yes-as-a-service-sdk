@@ -61,12 +61,14 @@ def yes_direct_setup(mockres)
   env = Runner.env_override({
     "YESASASERVICE_TEST_YES_ENTID" => {},
     "YESASASERVICE_TEST_LIVE" => "FALSE",
+    "YESASASERVICE_APIKEY" => "NONE",
   })
 
   live = env["YESASASERVICE_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["YESASASERVICE_APIKEY"],
     }
     client = YesAsAServiceSDK.new(merged_opts)
     return {

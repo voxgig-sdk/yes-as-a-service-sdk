@@ -1,20 +1,8 @@
 # YesAsAService SDK
 
-Get a random yes, no, or maybe answer paired with a reaction GIF
+FastAPI client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About FastAPI
-
-[YesNo](https://yesno.wtf) is a tiny public API that answers a single question: yes, no, or (rarely) maybe. Each response also includes a reaction GIF, making it a popular pick for tutorials, demos, and quick decision toys. The service is run by Mo, Martin, and Michi.
-
-What you get from the API:
-
-- A single endpoint, `GET /api`, returning JSON with an `answer`, a `forced` flag, and an `image` URL pointing to an animated GIF on `yesno.wtf/assets/...`
-- An optional `force` query parameter accepting `yes`, `no`, or `maybe` to pin the answer for testing or scripted demos
-- A built-in surprise: roughly one response in every ten thousand comes back as `maybe`
-
-The service is unauthenticated and intended for casual use. No API key, no account, no documented rate limits — just a `GET` against `https://yesno.wtf/api`.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install yes-as-a-service-sdk
 luarocks install yes-as-a-service-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { YesAsAServiceSDK } from 'yes-as-a-service'
 
-const client = new YesAsAServiceSDK({})
+const client = new YesAsAServiceSDK({
+  apikey: process.env.YES-AS-A-SERVICE_APIKEY,
+})
 
+// Load yes data
+const yes = await client.Yes().load({})
+console.log(yes.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Yes** | The single answer resource exposed by the API, served from `GET /api` and returning a yes/no/maybe verdict together with a matching GIF URL. | `/yes` |
+| **Yes** |  | `/yes` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -108,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from yesasaservice_sdk import YesAsAServiceSDK
 
-client = YesAsAServiceSDK({})
+client = YesAsAServiceSDK({
+    "apikey": os.environ.get("YES-AS-A-SERVICE_APIKEY"),
+})
 
 
 # Load a specific yes
-yes, err = client.Yes(None).load(
-    {"id": "example_id"}, None
-)
+yes, err = client.Yes().load({"id": "example_id"})
+print(yes)
 ```
 
 ### PHP
@@ -125,13 +119,14 @@ yes, err = client.Yes(None).load(
 <?php
 require_once 'yesasaservice_sdk.php';
 
-$client = new YesAsAServiceSDK([]);
+$client = new YesAsAServiceSDK([
+    "apikey" => getenv("YES-AS-A-SERVICE_APIKEY"),
+]);
 
 
 // Load a specific yes
-[$yes, $err] = $client->Yes(null)->load(
-    ["id" => "example_id"], null
-);
+[$yes, $err] = $client->Yes()->load(["id" => "example_id"]);
+print_r($yes);
 ```
 
 ### Golang
@@ -139,8 +134,13 @@ $client = new YesAsAServiceSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/yes-as-a-service-sdk/go"
 
-client := sdk.NewYesAsAServiceSDK(map[string]any{})
+client := sdk.NewYesAsAServiceSDK(map[string]any{
+    "apikey": os.Getenv("YES-AS-A-SERVICE_APIKEY"),
+})
 
+// Load yes data
+yes, err := client.Yes(nil).Load(map[string]any{}, nil)
+fmt.Println(yes)
 ```
 
 ### Ruby
@@ -148,13 +148,14 @@ client := sdk.NewYesAsAServiceSDK(map[string]any{})
 ```ruby
 require_relative "YesAsAService_sdk"
 
-client = YesAsAServiceSDK.new({})
+client = YesAsAServiceSDK.new({
+  "apikey" => ENV["YES-AS-A-SERVICE_APIKEY"],
+})
 
 
 # Load a specific yes
-yes, err = client.Yes(nil).load(
-  { "id" => "example_id" }, nil
-)
+yes, err = client.Yes().load({ "id" => "example_id" })
+puts yes
 ```
 
 ### Lua
@@ -162,13 +163,14 @@ yes, err = client.Yes(nil).load(
 ```lua
 local sdk = require("yes-as-a-service_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("YES-AS-A-SERVICE_APIKEY"),
+})
 
 
 -- Load a specific yes
-local yes, err = client:Yes(nil):load(
-  { id = "example_id" }, nil
-)
+local yes, err = client:Yes():load({ id = "example_id" })
+print(yes)
 ```
 
 ## Unit testing in offline mode
@@ -187,25 +189,21 @@ const result = await client.Yes().load({ id: 'test01' })
 ### Python
 
 ```python
-client = YesAsAServiceSDK.test(None, None)
-result, err = client.Yes(None).load(
-    {"id": "test01"}, None
-)
+client = YesAsAServiceSDK.test()
+result, err = client.Yes().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = YesAsAServiceSDK::test(null, null);
-[$result, $err] = $client->Yes(null)->load(
-    ["id" => "test01"], null
-);
+$client = YesAsAServiceSDK::test();
+[$result, $err] = $client->Yes()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Yes(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -214,19 +212,15 @@ result, err := client.Yes(nil).Load(
 ### Ruby
 
 ```ruby
-client = YesAsAServiceSDK.test(nil, nil)
-result, err = client.Yes(nil).load(
-  { "id" => "test01" }, nil
-)
+client = YesAsAServiceSDK.test
+result, err = client.Yes().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Yes(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Yes():load({ id = "test01" })
 ```
 
 ## How it works
@@ -330,15 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the FastAPI
-
-- Upstream: [https://yesno.wtf](https://yesno.wtf)
-- API docs: [https://yesno.wtf/api](https://yesno.wtf/api)
-
-- The API does not publish an explicit licence on its homepage
-- GIF assets are hosted by yesno.wtf; treat them as the operators' content and credit the source when reusing
-- Not affiliated with Voxgig; this SDK is a generated client over the public endpoint
 
 ---
 

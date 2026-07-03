@@ -99,12 +99,14 @@ func yesDirectSetup(mockres any) *yesDirectSetupResult {
 	env := envOverride(map[string]any{
 		"YESASASERVICE_TEST_YES_ENTID": map[string]any{},
 		"YESASASERVICE_TEST_LIVE":    "FALSE",
+		"YESASASERVICE_APIKEY":       "NONE",
 	})
 
 	live := env["YESASASERVICE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["YESASASERVICE_APIKEY"],
 		}
 		client := sdk.NewYesAsAServiceSDK(mergedOpts)
 

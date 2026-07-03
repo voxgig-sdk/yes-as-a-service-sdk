@@ -91,6 +91,7 @@ function yes_basic_setup(extra)
     ["YESASASERVICE_TEST_YES_ENTID"] = idmap,
     ["YESASASERVICE_TEST_LIVE"] = "FALSE",
     ["YESASASERVICE_TEST_EXPLAIN"] = "FALSE",
+    ["YESASASERVICE_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ function yes_basic_setup(extra)
   if env["YESASASERVICE_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["YESASASERVICE_APIKEY"],
       },
       extra or {},
     })
