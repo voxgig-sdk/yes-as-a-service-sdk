@@ -10,13 +10,13 @@ The Ruby SDK for the YesAsAService API — an entity-oriented client using idiom
 
 ## Install
 ```bash
-gem install yes-as-a-service-sdk
+gem install voxgig-sdk-yes-as-a-service
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "yes-as-a-service-sdk"
+gem "voxgig-sdk-yes-as-a-service"
 ```
 
 Then run:

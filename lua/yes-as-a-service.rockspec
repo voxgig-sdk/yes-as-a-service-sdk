@@ -8,12 +8,14 @@ source = {
   dir = "yes-as-a-service-sdk/lua"
 }
 description = {
-  summary = "YesAsAService SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Fast public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/yes-as-a-service-sdk",
+  issues_url = "https://github.com/voxgig-sdk/yes-as-a-service-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "yes-as-a-service" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

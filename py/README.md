@@ -10,7 +10,7 @@ The Python SDK for the YesAsAService API — an entity-oriented client following
 
 ## Install
 ```bash
-pip install yes-as-a-service-sdk
+pip install voxgig-sdk-yes-as-a-service
 ```
 
 Or install from source:

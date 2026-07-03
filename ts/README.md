@@ -10,7 +10,7 @@ The TypeScript SDK for the YesAsAService API — a type-safe, entity-oriented cl
 
 ## Install
 ```bash
-npm install yes-as-a-service
+npm install @voxgig-sdk/yes-as-a-service
 ```
 ## Tutorial: your first API call
 

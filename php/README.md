@@ -10,7 +10,7 @@ The PHP SDK for the YesAsAService API — an entity-oriented client using PHP co
 
 ## Install
 ```bash
-composer require voxgig/yes-as-a-service-sdk
+composer require voxgig-sdk/yes-as-a-service
 ```
 
 
