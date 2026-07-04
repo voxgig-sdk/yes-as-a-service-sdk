@@ -9,9 +9,12 @@ The TypeScript SDK for the YesAsAService API — a type-safe, entity-oriented cl
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/yes-as-a-service
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/yes-as-a-service-sdk/releases](https://github.com/voxgig-sdk/yes-as-a-service-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { YesAsAServiceSDK } from 'yes-as-a-service'
+import { YesAsAServiceSDK } from '@voxgig-sdk/yes-as-a-service'
 
-const client = new YesAsAServiceSDK({
-  apikey: process.env.YES-AS-A-SERVICE_APIKEY,
-})
+const client = new YesAsAServiceSDK()
 ```
 
 ### 3. Load a yes
 
 ```ts
-const result = await client.Yes().load({ id: 'example_id' })
+const result = await client.yes.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = YesAsAServiceSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.yes.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new YesAsAServiceSDK({ apikey: '...' })
+const client = new YesAsAServiceSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.yes
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new YesAsAServiceSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new YesAsAServiceSDK({
 Create a `.env.local` file at the project root:
 
 ```
-YES-AS-A-SERVICE_TEST_LIVE=TRUE
-YES-AS-A-SERVICE_APIKEY=<your-key>
+YES_AS_A_SERVICE_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new YesAsAServiceSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new YesAsAServiceSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -265,7 +262,7 @@ API path: `/yes`
 
 ### Yes
 
-Create an instance: `const yes = client.Yes()`
+Create an instance: `const yes = client.yes`
 
 #### Operations
 
@@ -276,7 +273,7 @@ Create an instance: `const yes = client.Yes()`
 #### Example: Load
 
 ```ts
-const yes = await client.Yes().load({ id: 'yes_id' })
+const yes = await client.yes.load({ id: 'yes_id' })
 ```
 
 
@@ -337,7 +334,7 @@ yes-as-a-service/
 Import the SDK from the package root:
 
 ```ts
-import { YesAsAServiceSDK } from 'yes-as-a-service'
+import { YesAsAServiceSDK } from '@voxgig-sdk/yes-as-a-service'
 ```
 
 ### Entity state
@@ -347,11 +344,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const yes = client.yes
+await yes.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// yes.data() now returns the loaded yes data
+// yes.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

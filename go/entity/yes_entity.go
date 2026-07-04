@@ -85,6 +85,27 @@ func (e *YesEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Yes; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *YesEntity) DataTyped(data ...Yes) Yes {
+	if len(data) > 0 {
+		return typedFrom[Yes](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Yes](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Yes (all fields
+// optional at the wire level).
+func (e *YesEntity) MatchTyped(match ...Yes) Yes {
+	if len(match) > 0 {
+		return typedFrom[Yes](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Yes](e.Match())
+}
+
 
 func (e *YesEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *YesEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, err
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// YesLoadMatch and returns an Yes. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *YesEntity) LoadTyped(reqmatch YesLoadMatch, ctrl map[string]any) (Yes, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Yes{}, err
+	}
+	return typedFrom[Yes](res), nil
 }
 
 

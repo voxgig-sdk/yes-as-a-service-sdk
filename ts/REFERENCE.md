@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `YesAsAServiceSDK.test()`.
 ## YesEntity
 
 ```ts
-const yes = client.Yes()
+const yes = client.yes
 ```
 
 ### Operations
@@ -120,7 +119,7 @@ const yes = client.Yes()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Yes().load({ id: 'yes_id' })
+const result = await client.yes.load({ id: 'yes_id' })
 ```
 
 ### Common Methods

@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'YESASASERVICE_TEST_YES_ENTID': {},
     'YESASASERVICE_TEST_LIVE': 'FALSE',
-    'YESASASERVICE_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.YESASASERVICE_TEST_LIVE
 
   if (live) {
     const client = new YesAsAServiceSDK({
-      apikey: env.YESASASERVICE_APIKEY,
     })
 
     let idmap: any = env['YESASASERVICE_TEST_YES_ENTID']

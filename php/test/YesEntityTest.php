@@ -49,8 +49,7 @@ class YesEntityTest extends TestCase
         // LOAD
         $yes_ref01_ent = $client->Yes(null);
         $yes_ref01_match_dt0 = [];
-        [$yes_ref01_data_dt0_loaded, $err] = $yes_ref01_ent->load($yes_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $yes_ref01_data_dt0_loaded = $yes_ref01_ent->load($yes_ref01_match_dt0, null);
         $this->assertNotNull($yes_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function yes_basic_setup($extra)
         "YESASASERVICE_TEST_YES_ENTID" => $idmap,
         "YESASASERVICE_TEST_LIVE" => "FALSE",
         "YESASASERVICE_TEST_EXPLAIN" => "FALSE",
-        "YESASASERVICE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function yes_basic_setup($extra)
     if ($env["YESASASERVICE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["YESASASERVICE_APIKEY"],
             ],
             $extra ?? [],
         ]);

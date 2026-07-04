@@ -62,14 +62,12 @@ function yes_direct_setup(mockres)
   local env = runner.env_override({
     ["YESASASERVICE_TEST_YES_ENTID"] = {},
     ["YESASASERVICE_TEST_LIVE"] = "FALSE",
-    ["YESASASERVICE_APIKEY"] = "NONE",
   })
 
   local live = env["YESASASERVICE_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["YESASASERVICE_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

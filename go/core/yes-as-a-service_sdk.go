@@ -245,6 +245,9 @@ func (sdk *YesAsAServiceSDK) Direct(fetchargs map[string]any) (map[string]any, e
 }
 
 
+// Yes returns a Yes entity bound to this client.
+// Idiomatic usage: client.Yes(nil).List(nil, nil) or
+// client.Yes(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *YesAsAServiceSDK) Yes(data map[string]any) YesAsAServiceEntity {
 	return NewYesEntityFunc(sdk, data)
 }

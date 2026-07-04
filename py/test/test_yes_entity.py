@@ -49,8 +49,7 @@ class TestYesEntity:
         # LOAD
         yes_ref01_ent = client.Yes(None)
         yes_ref01_match_dt0 = {}
-        yes_ref01_data_dt0_loaded, err = yes_ref01_ent.load(yes_ref01_match_dt0, None)
-        assert err is None
+        yes_ref01_data_dt0_loaded = yes_ref01_ent.load(yes_ref01_match_dt0, None)
         assert yes_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _yes_basic_setup(extra):
         "YESASASERVICE_TEST_YES_ENTID": idmap,
         "YESASASERVICE_TEST_LIVE": "FALSE",
         "YESASASERVICE_TEST_EXPLAIN": "FALSE",
-        "YESASASERVICE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _yes_basic_setup(extra):
     if env.get("YESASASERVICE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("YESASASERVICE_APIKEY"),
             },
             extra or {},
         ])

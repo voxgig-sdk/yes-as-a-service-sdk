@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch YesLoadMatch
+---@param ctrl? table
+---@return Yes
+---@return string? err
 function YesEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -2,6 +2,8 @@
 
 import { YesEntity } from './entity/YesEntity'
 
+export type * from './YesAsAServiceTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class YesAsAServiceSDK {
 
 
 
+  _yes?: YesEntity
+
+  // Idiomatic facade: `client.yes.list()` / `client.yes.load({ id })`.
+  get yes(): YesEntity {
+    return (this._yes ??= new YesEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.yes` instead. */
   Yes(data?: any) {
     const self = this
     return new YesEntity(self,data)
