@@ -204,14 +204,7 @@ class YesAsAServiceSDK {
 
 
 
-  _yes?: YesEntity
-
-  // Idiomatic facade: `client.yes.list()` / `client.yes.load({ id })`.
-  get yes(): YesEntity {
-    return (this._yes ??= new YesEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.yes` instead. */
+  // Entity access: `client.Yes().list()` / `client.Yes().load({ id })`.
   Yes(data?: any) {
     const self = this
     return new YesEntity(self,data)

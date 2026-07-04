@@ -33,10 +33,12 @@ client = YesAsAServiceSDK()
 
 ### 3. Load a yes
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.yes.load({"id": "example_id"})
-    print(result)
+    yes = client.Yes().load({"id": "example_id"})
+    print(yes)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = YesAsAServiceSDK.test()
 
-result = client.yes.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+yes = client.Yes().load({"id": "test01"})
+# yes contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -217,7 +220,7 @@ API path: `/yes`
 
 ### Yes
 
-Create an instance: `const yes = client.yes`
+Create an instance: `yes = client.Yes()`
 
 #### Operations
 
@@ -227,8 +230,8 @@ Create an instance: `const yes = client.yes`
 
 #### Example: Load
 
-```ts
-const yes = await client.yes.load({ id: 'yes_id' })
+```python
+yes = client.Yes().load({"id": "yes_id"})
 ```
 
 
@@ -302,7 +305,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-yes = client.yes
+yes = client.Yes()
 yes.load({"id": "example_id"})
 
 # yes.data_get() now returns the loaded yes data

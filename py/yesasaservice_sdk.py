@@ -220,25 +220,15 @@ class YesAsAServiceSDK:
         }
 
 
-    @property
-    def yes(self):
-        """Idiomatic facade: client.yes.list() / client.yes.load({"id": ...})."""
-        from entity.yes_entity import YesEntity
-        cached = getattr(self, "_yes", None)
-        if cached is None:
-            cached = YesEntity(self, None)
-            self._yes = cached
-        return cached
-
-    def Yes(self, data=None):
-        # Deprecated: use client.yes instead.
+    def Yes(self, data=None) -> "YesEntity":
+        """Entity factory: client.Yes().list({}) / client.Yes().load({"id": ...})."""
         from entity.yes_entity import YesEntity
         return YesEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "YesAsAServiceSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class YesAsAServiceSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.yes_entity import YesEntity

@@ -32,8 +32,9 @@ client = YesAsAServiceSDK.new
 
 ```ruby
 begin
-  result = client.yes.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Yes record (raises on error).
+  yes = client.Yes.load({ "id" => "example_id" })
+  puts yes
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = YesAsAServiceSDK.test
+client = YesAsAServiceSDK.test({
+  "entity" => { "yes" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.yes.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+yes = client.Yes.load({ "id" => "test01" })
+puts yes
 ```
 
 ### Use a custom fetch function
@@ -217,7 +222,7 @@ API path: `/yes`
 
 ### Yes
 
-Create an instance: `const yes = client.yes`
+Create an instance: `yes = client.Yes`
 
 #### Operations
 
@@ -227,8 +232,9 @@ Create an instance: `const yes = client.yes`
 
 #### Example: Load
 
-```ts
-const yes = await client.yes.load({ id: 'yes_id' })
+```ruby
+# load returns the bare Yes record (raises on error).
+yes = client.Yes.load({ "id" => "yes_id" })
 ```
 
 
@@ -303,7 +309,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-yes = client.yes
+yes = client.Yes
 yes.load({ "id" => "example_id" })
 
 # yes.data_get now returns the loaded yes data

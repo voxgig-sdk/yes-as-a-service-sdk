@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:yes():list() / client:yes():load({ id = ... })
-function YesAsAServiceSDK:yes(data)
+-- Idiomatic facade: client:Yes():list() / client:Yes():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function YesAsAServiceSDK:Yes(data)
   local EntityMod = require("entity.yes_entity")
   if data == nil then
     if self._yes == nil then
@@ -253,12 +254,6 @@ function YesAsAServiceSDK:yes(data)
     end
     return self._yes
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:yes() instead.
-function YesAsAServiceSDK:Yes(data)
-  local EntityMod = require("entity.yes_entity")
   return EntityMod.new(self, data)
 end
 

@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## YesEntity
 
 ```php
-$yes = $client->yes();
+$yes = $client->Yes();
 ```
 
 ### Operations
@@ -95,7 +95,7 @@ $yes = $client->yes();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->yes()->load(["id" => "yes_id"]);
+$result = $client->Yes()->load(["id" => "yes_id"]);
 ```
 
 ### Common Methods

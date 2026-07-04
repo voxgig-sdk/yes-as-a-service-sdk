@@ -233,10 +233,10 @@ class YesAsAServiceSDK
 
     private $_yes = null;
 
-    // Idiomatic facade: $client->yes()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Yes() (PHP method
-    // names are case-insensitive).
-    public function yes($data = null)
+    // Canonical facade: $client->Yes()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->yes()
+    // resolves here too.
+    public function Yes($data = null)
     {
         require_once __DIR__ . '/entity/yes_entity.php';
         if ($data === null) {

@@ -208,13 +208,7 @@ class YesAsAServiceSDK
   end
 
 
-  # Idiomatic facade: client.yes.list / client.yes.load({ "id" => ... })
-  def yes
-    require_relative 'entity/yes_entity'
-    @yes ||= YesEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.yes instead.
+  # Canonical facade: client.Yes.list / client.Yes.load({ "id" => ... })
   def Yes(data = nil)
     require_relative 'entity/yes_entity'
     YesEntity.new(self, data)

@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## YesEntity
 
 ```ruby
-yes = client.yes
+yes = client.Yes
 ```
 
 ### Operations
@@ -96,7 +96,7 @@ yes = client.yes
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.yes.load({ "id" => "yes_id" })
+result = client.Yes.load({ "id" => "yes_id" })
 ```
 
 ### Common Methods

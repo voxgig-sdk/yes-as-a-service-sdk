@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## YesEntity
 
 ```python
-yes = client.yes
+yes = client.Yes()
 ```
 
 ### Operations
@@ -90,7 +90,7 @@ yes = client.yes
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.yes.load({"id": "yes_id"})
+result = client.Yes().load({"id": "yes_id"})
 ```
 
 ### Common Methods

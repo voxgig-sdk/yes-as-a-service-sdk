@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## YesEntity
 
 ```lua
-local yes = client:yes(nil)
+local yes = client:Yes(nil)
 ```
 
 ### Operations
@@ -93,7 +93,7 @@ local yes = client:yes(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:yes():load({ id = "yes_id" })
+local result, err = client:Yes():load({ id = "yes_id" })
 ```
 
 ### Common Methods

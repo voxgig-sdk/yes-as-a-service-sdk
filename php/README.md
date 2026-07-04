@@ -33,9 +33,10 @@ $client = new YesAsAServiceSDK();
 
 ```php
 try {
-    $result = $client->yes()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Yes record (throws on error).
+    $yes = $client->Yes()->load(["id" => "example_id"]);
+    print_r($yes);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = YesAsAServiceSDK::test();
+$client = YesAsAServiceSDK::test([
+    "entity" => ["yes" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->yes()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$yes = $client->Yes()->load(["id" => "test01"]);
+print_r($yes);
 ```
 
 ### Use a custom fetch function
@@ -222,7 +227,7 @@ API path: `/yes`
 
 ### Yes
 
-Create an instance: `const yes = client.yes`
+Create an instance: `$yes = $client->Yes();`
 
 #### Operations
 
@@ -232,8 +237,9 @@ Create an instance: `const yes = client.yes`
 
 #### Example: Load
 
-```ts
-const yes = await client.yes.load({ id: 'yes_id' })
+```php
+// load() returns the bare Yes record (throws on error).
+$yes = $client->Yes()->load(["id" => "yes_id"]);
 ```
 
 
@@ -308,7 +314,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$yes = $client->yes();
+$yes = $client->Yes();
 $yes->load(["id" => "example_id"]);
 
 // $yes->dataGet() now returns the loaded yes data

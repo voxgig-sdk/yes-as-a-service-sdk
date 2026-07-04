@@ -109,7 +109,7 @@ Alias for `YesAsAServiceSDK.test()`.
 ## YesEntity
 
 ```ts
-const yes = client.yes
+const yes = client.Yes()
 ```
 
 ### Operations
@@ -119,7 +119,7 @@ const yes = client.yes
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.yes.load({ id: 'yes_id' })
+const result = await client.Yes().load({ id: 'yes_id' })
 ```
 
 ### Common Methods
