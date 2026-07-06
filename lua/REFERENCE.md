@@ -93,7 +93,7 @@ local yes = client:Yes(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Yes():load({ id = "yes_id" })
+local result, err = client:Yes():load()
 ```
 
 ### Common Methods

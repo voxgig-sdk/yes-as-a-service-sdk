@@ -221,7 +221,7 @@ class YesAsAServiceSDK:
 
 
     def Yes(self, data=None) -> "YesEntity":
-        """Entity factory: client.Yes().list({}) / client.Yes().load({"id": ...})."""
+        """Entity factory: client.Yes().list() / client.Yes().load({"id": ...})."""
         from entity.yes_entity import YesEntity
         return YesEntity(self, data)
 

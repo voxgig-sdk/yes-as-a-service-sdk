@@ -119,7 +119,7 @@ const yes = client.Yes()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Yes().load({ id: 'yes_id' })
+const result = await client.Yes().load()
 ```
 
 ### Common Methods

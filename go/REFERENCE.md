@@ -100,7 +100,7 @@ yes := client.Yes(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Yes(nil).Load(map[string]any{"id": "yes_id"}, nil)
+result, err := client.Yes(nil).Load(nil, nil)
 ```
 
 ### Common Methods

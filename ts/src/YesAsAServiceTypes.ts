@@ -8,5 +8,6 @@
 export interface Yes {
 }
 
-export type YesLoadMatch = Partial<Yes>
+export interface YesLoadMatch {
+}
 

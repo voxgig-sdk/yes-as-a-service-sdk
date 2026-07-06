@@ -8,7 +8,7 @@ Complete API reference for the YesAsAService Python SDK.
 ### Constructor
 
 ```python
-from yes-as-a-service_sdk import YesAsAServiceSDK
+from yesasaservice_sdk import YesAsAServiceSDK
 
 client = YesAsAServiceSDK(options)
 ```
@@ -90,7 +90,7 @@ yes = client.Yes()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Yes().load({"id": "yes_id"})
+result = client.Yes().load()
 ```
 
 ### Common Methods

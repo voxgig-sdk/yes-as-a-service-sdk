@@ -17,7 +17,7 @@ class Yes
 {
 }
 
-/** Match filter for Yes#load (any subset of Yes fields). */
+/** Request payload for Yes#load. */
 class YesLoadMatch
 {
 }

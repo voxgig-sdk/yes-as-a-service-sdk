@@ -12,8 +12,7 @@ import "encoding/json"
 type Yes struct {
 }
 
-// YesLoadMatch mirrors the yes fields as an all-optional match
-// filter (Go analog of Partial<Yes>).
+// YesLoadMatch is the typed request payload for Yes.LoadTyped.
 type YesLoadMatch struct {
 }
 

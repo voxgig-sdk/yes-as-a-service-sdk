@@ -8,7 +8,7 @@ Complete API reference for the YesAsAService Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'yes-as-a-service_sdk'
+require_relative 'YesAsAService_sdk'
 
 client = YesAsAServiceSDK.new(options)
 ```
@@ -96,7 +96,7 @@ yes = client.Yes
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Yes.load({ "id" => "yes_id" })
+result = client.Yes.load()
 ```
 
 ### Common Methods
