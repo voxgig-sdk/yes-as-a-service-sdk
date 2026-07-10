@@ -12,7 +12,6 @@ main: {
       ]
       title: "FastAPI"
       version: "0.1.0"
+      website: "https://yesno.wtf"
     }
   }
-}
-

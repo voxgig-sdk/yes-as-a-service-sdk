@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 yes := client.Yes(nil)
+fmt.Println(yes.GetName()) // "yes"
 ```
 
 ### Operations
@@ -101,6 +102,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Yes(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
