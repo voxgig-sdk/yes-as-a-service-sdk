@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- YesAsAService SDK exists test
 
 local sdk = require("yes-as-a-service_sdk")
 
