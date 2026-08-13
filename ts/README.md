@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = YesAsAServiceSDK.test()
 
 const yes = await client.Yes().load()
-// yes is a bare entity populated with mock response data
+// yes is the entity, populated with mock response data
+// — call yes.data() for the record itself
 console.log(yes)
 ```
 

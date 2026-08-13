@@ -16,11 +16,11 @@
 import pytest
 
 from yesasaservice_sdk import YesAsAServiceSDK
-from core.error import YesAsAServiceError
-from core.result import YesAsAServiceResult
-from core.response import YesAsAServiceResponse
-from core.spec import YesAsAServiceSpec
-from feature.base_feature import YesAsAServiceBaseFeature
+from yesasaservice_sdk.core.error import YesAsAServiceError
+from yesasaservice_sdk.core.result import YesAsAServiceResult
+from yesasaservice_sdk.core.response import YesAsAServiceResponse
+from yesasaservice_sdk.core.spec import YesAsAServiceSpec
+from yesasaservice_sdk.feature.base_feature import YesAsAServiceBaseFeature
 
 
 def _client():

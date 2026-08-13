@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import YesAsAServiceControl
-from core.error import YesAsAServiceError
-from core.result import YesAsAServiceResult
-from core.spec import YesAsAServiceSpec
+from yesasaservice_sdk.config import make_config
+from yesasaservice_sdk.features import _make_feature
+from yesasaservice_sdk.core.control import YesAsAServiceControl
+from yesasaservice_sdk.core.error import YesAsAServiceError
+from yesasaservice_sdk.core.result import YesAsAServiceResult
+from yesasaservice_sdk.core.spec import YesAsAServiceSpec
 
 
 # True when this SDK was generated with the named feature.

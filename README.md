@@ -36,9 +36,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = YesAsAServiceSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = YesAsAServiceSDK.test({
+  entity: {
+    yes: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const yes = await client.Yes().load()
-// yes is a bare Yes populated with mock data
+// yes is the Yes entity, populated with mock data
+// — call yes.data() for the record itself
 console.log(yes)
 ```
 
@@ -180,7 +189,7 @@ require_once 'yesasaservice_sdk.php';
 $client = new YesAsAServiceSDK();
 
 
-// Load a specific yes (returns the bare record; throws on error)
+// Load a specific yes (returns the ENTITY; call data_get() for the record; throws on error)
 $yes = $client->Yes()->load();
 print_r($yes);
 ```
@@ -208,7 +217,7 @@ require_relative "YesAsAService_sdk"
 client = YesAsAServiceSDK.new
 
 
-# Load a specific yes (returns the bare record; raises on error)
+# Load a specific yes (returns the ENTITY; call data_get for the record)
 yes = client.Yes.load()
 puts yes
 ```
@@ -342,6 +351,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://yesno.wtf](https://yesno.wtf)
 

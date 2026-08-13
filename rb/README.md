@@ -34,7 +34,7 @@ client = YesAsAServiceSDK.new
 
 ```ruby
 begin
-  # load returns the bare Yes record (raises on error).
+  # load returns the ENTITY — call data_get for the Yes record (raises on error).
   yes = client.Yes.load()
   puts yes
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = YesAsAServiceSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 yes = client.Yes.load()
 puts yes
 ```
@@ -257,7 +258,7 @@ Create an instance: `yes = client.Yes`
 #### Example: Load
 
 ```ruby
-# load returns the bare Yes record (raises on error).
+# load returns the ENTITY — call data_get for the Yes record (raises on error).
 yes = client.Yes.load()
 ```
 

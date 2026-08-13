@@ -35,7 +35,7 @@ $client = new YesAsAServiceSDK();
 
 ```php
 try {
-    // load() returns the bare Yes record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Yes record (throws on error).
     $yes = $client->Yes()->load();
     print_r($yes);
 } catch (\Throwable $err) {
@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = YesAsAServiceSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $yes = $client->Yes()->load();
 print_r($yes);
 ```
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -267,7 +268,7 @@ Create an instance: `$yes = $client->Yes();`
 #### Example: Load
 
 ```php
-// load() returns the bare Yes record (throws on error).
+// load() returns the ENTITY — call data_get() for the Yes record (throws on error).
 $yes = $client->Yes()->load();
 ```
 

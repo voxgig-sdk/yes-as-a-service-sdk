@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from yesasaservice_sdk.utility.voxgig_struct import voxgig_struct as vs
 from yesasaservice_sdk import YesAsAServiceSDK
-from core import helpers
+from yesasaservice_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _yes_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "YESASASERVICE_TEST_YES_ENTID": {},
-        "YESASASERVICE_TEST_LIVE": "FALSE",
+        "YES_AS_A_SERVICE_TEST_YES_ENTID": {},
+        "YES_AS_A_SERVICE_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("YESASASERVICE_TEST_LIVE") == "TRUE"
+    live = env.get("YES_AS_A_SERVICE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

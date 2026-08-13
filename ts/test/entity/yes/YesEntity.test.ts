@@ -26,8 +26,8 @@ import {
 describe('YesEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when YESASASERVICE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('YESASASERVICE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when YES_AS_A_SERVICE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('YES_AS_A_SERVICE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = YesAsAServiceSDK.test()
@@ -62,7 +62,7 @@ describe('YesEntity', async () => {
     // LOAD
     const yes_ref01_ent = client.Yes()
     const yes_ref01_match_dt0: any = {}
-    const yes_ref01_data_dt0 = await yes_ref01_ent.load(yes_ref01_match_dt0)
+    const yes_ref01_data_dt0 = (await yes_ref01_ent.load(yes_ref01_match_dt0)).data()
     assert(null != yes_ref01_data_dt0)
 
 

@@ -59,11 +59,11 @@ def yes_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "YESASASERVICE_TEST_YES_ENTID" => {},
-    "YESASASERVICE_TEST_LIVE" => "FALSE",
+    "YES_AS_A_SERVICE_TEST_YES_ENTID" => {},
+    "YES_AS_A_SERVICE_TEST_LIVE" => "FALSE",
   })
 
-  live = env["YESASASERVICE_TEST_LIVE"] == "TRUE"
+  live = env["YES_AS_A_SERVICE_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

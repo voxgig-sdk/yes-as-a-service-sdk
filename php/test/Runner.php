@@ -43,8 +43,8 @@ class YesAsAServiceTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('YESASASERVICE_TEST_LIVE');
-        $override = self::getenv('YESASASERVICE_TEST_OVERRIDE');
+        $live = self::getenv('YES_AS_A_SERVICE_TEST_LIVE');
+        $override = self::getenv('YES_AS_A_SERVICE_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class YesAsAServiceTestRunner
             }
         }
 
-        $explain = self::getenv('YESASASERVICE_TEST_EXPLAIN');
+        $explain = self::getenv('YES_AS_A_SERVICE_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['YESASASERVICE_TEST_EXPLAIN'] = $explain;
+            $m['YES_AS_A_SERVICE_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

@@ -23,8 +23,8 @@ module YesAsAServiceTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("YESASASERVICE_TEST_LIVE")
-    override = getenv("YESASASERVICE_TEST_OVERRIDE")
+    live = getenv("YES_AS_A_SERVICE_TEST_LIVE")
+    override = getenv("YES_AS_A_SERVICE_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module YesAsAServiceTestRunner
       end
     end
 
-    explain = getenv("YESASASERVICE_TEST_EXPLAIN")
-    m["YESASASERVICE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("YES_AS_A_SERVICE_TEST_EXPLAIN")
+    m["YES_AS_A_SERVICE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -34,6 +34,7 @@ module YesAsAServiceConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/yes",
                   "parts" => [
