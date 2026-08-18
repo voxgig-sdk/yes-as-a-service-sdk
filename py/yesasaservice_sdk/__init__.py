@@ -23,8 +23,8 @@ class YesAsAServiceSDK:
         utility = YesAsAServiceUtility()
         self._utility = utility
 
-        from yesasaservice_sdk.config import make_config
-        config = make_config()
+        from yesasaservice_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

@@ -40,7 +40,7 @@ class YesAsAServiceSDK
         $utility = new YesAsAServiceUtility();
         $this->_utility = $utility;
 
-        $config = YesAsAServiceConfig::make_config();
+        $config = YesAsAServiceConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

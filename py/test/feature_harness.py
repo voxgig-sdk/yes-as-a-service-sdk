@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from yesasaservice_sdk.config import make_config
+from yesasaservice_sdk.config import shared_config
 from yesasaservice_sdk.features import _make_feature
 from yesasaservice_sdk.core.control import YesAsAServiceControl
 from yesasaservice_sdk.core.error import YesAsAServiceError
@@ -24,7 +24,7 @@ from yesasaservice_sdk.core.spec import YesAsAServiceSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

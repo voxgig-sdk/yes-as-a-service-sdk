@@ -15,7 +15,7 @@ require_relative "../YesAsAService_sdk"
 module YesAsAServiceFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = YesAsAServiceConfig.make_config["feature"]
+    f = YesAsAServiceConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

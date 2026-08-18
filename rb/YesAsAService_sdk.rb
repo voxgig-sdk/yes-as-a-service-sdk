@@ -28,7 +28,7 @@ class YesAsAServiceSDK
     utility = YesAsAServiceUtility.new
     @_utility = utility
 
-    config = YesAsAServiceConfig.make_config
+    config = YesAsAServiceConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
