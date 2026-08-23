@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "YesAsAService",
+      slug = "yes-as-a-service",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {

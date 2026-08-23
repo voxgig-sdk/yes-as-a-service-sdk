@@ -33,6 +33,9 @@ class YesAsAServiceConfig
         return [
             "main" => [
                 "name" => "YesAsAService",
+                "slug" => "yes-as-a-service",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [

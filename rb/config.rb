@@ -19,6 +19,9 @@ module YesAsAServiceConfig
     {
       "main" => {
         "name" => "YesAsAService",
+        "slug" => "yes-as-a-service",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
