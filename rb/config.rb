@@ -54,14 +54,19 @@ module YesAsAServiceConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/yes",
-                  "parts" => [
-                    "yes",
+                  "segments" => [
+                    {
+                      "lit" => "yes",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "yes",
+                  ],
                 },
               ],
             },

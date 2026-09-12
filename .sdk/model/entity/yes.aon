@@ -12,8 +12,10 @@ main: kit: entity: yes: {
         {
           method: "GET"
           orig: "/yes"
-          parts: [
-            "yes"
+          segments: [
+            {
+              lit: "yes"
+            }
           ]
           transform: {
             req: "`reqdata`"
