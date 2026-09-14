@@ -103,7 +103,7 @@ local result, err = client:Yes():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/yes-as-a-service` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yes-as-a-service-sdk/releases) |
+| TypeScript | `@voxgig-sdk/yes-as-a-service-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yes-as-a-service-sdk/releases) |
 | Python | `voxgig-sdk-yes-as-a-service` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yes-as-a-service-sdk/releases) |
 | PHP | `voxgig-sdk/yes-as-a-service` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yes-as-a-service-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/yes-as-a-service-sdk/go` | `go get github.com/voxgig-sdk/yes-as-a-service-sdk/go@latest` |
@@ -117,7 +117,7 @@ local result, err = client:Yes():load()
 ### TypeScript
 
 ```ts
-import { YesAsAServiceSDK } from '@voxgig-sdk/yes-as-a-service'
+import { YesAsAServiceSDK } from '@voxgig-sdk/yes-as-a-service-sdk'
 
 const client = new YesAsAServiceSDK()
 

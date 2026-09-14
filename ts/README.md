@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { YesAsAServiceSDK } from '@voxgig-sdk/yes-as-a-service'
+import { YesAsAServiceSDK } from '@voxgig-sdk/yes-as-a-service-sdk'
 
 const client = new YesAsAServiceSDK()
 ```
@@ -394,7 +394,7 @@ yes-as-a-service/
 Import the SDK from the package root:
 
 ```ts
-import { YesAsAServiceSDK } from '@voxgig-sdk/yes-as-a-service'
+import { YesAsAServiceSDK } from '@voxgig-sdk/yes-as-a-service-sdk'
 ```
 
 ### Entity state
