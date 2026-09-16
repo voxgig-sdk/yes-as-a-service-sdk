@@ -1,12 +1,18 @@
 # YesAsAService SDK feature factory
 
 from yesasaservice_sdk.feature.base_feature import YesAsAServiceBaseFeature
+from yesasaservice_sdk.feature.ratelimit_feature import YesAsAServiceRatelimitFeature
+from yesasaservice_sdk.feature.retry_feature import YesAsAServiceRetryFeature
 from yesasaservice_sdk.feature.test_feature import YesAsAServiceTestFeature
+from yesasaservice_sdk.feature.timeout_feature import YesAsAServiceTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: YesAsAServiceBaseFeature(),
+    "ratelimit": lambda: YesAsAServiceRatelimitFeature(),
+    "retry": lambda: YesAsAServiceRetryFeature(),
     "test": lambda: YesAsAServiceTestFeature(),
+    "timeout": lambda: YesAsAServiceTimeoutFeature(),
 }
 
 

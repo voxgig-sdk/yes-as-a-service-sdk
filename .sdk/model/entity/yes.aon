@@ -10,6 +10,12 @@ main: kit: entity: yes: {
       name: "load"
       points: [
         {
+          contract: {
+            id: "GET /yes"
+            json: "{\"operationId\":\"get_random_reason_yes_get\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{}}},\"description\":\"Successful Response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/yes"
           segments: [

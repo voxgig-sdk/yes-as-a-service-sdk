@@ -16,5 +16,26 @@
     "yes": {
       "yes_ref01": {}
     }
+  },
+  "requests": {
+    "GET /yes": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "get_random_reason_yes_get",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
