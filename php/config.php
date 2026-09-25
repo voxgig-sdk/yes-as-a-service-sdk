@@ -118,7 +118,6 @@ class YesAsAServiceConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/yes',
@@ -127,14 +126,16 @@ class YesAsAServiceConfig
                       'lit' => 'yes',
                     ],
                   ],
-                  'select' => [],
+                  'parts' => [
+                    'yes',
+                  ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'yes',
-                  ],
+                  'args' => [],
+                  'select' => [],
                 ],
               ],
             ],

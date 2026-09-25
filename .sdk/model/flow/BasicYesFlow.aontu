@@ -1,0 +1,28 @@
+# BasicYesFlow
+
+main: kit: flow: BasicYesFlow:
+{
+  entity: "yes",
+  kind: "basic",
+  name: "BasicYesFlow",
+  step: [
+    {
+      i: {
+        ref: "yes_ref01",
+        srcdatavar: "yes_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-yes_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicYesFlow"
+}

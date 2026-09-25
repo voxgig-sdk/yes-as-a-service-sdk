@@ -92,7 +92,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/yes",
@@ -101,14 +100,16 @@ local function make_config()
                     ["lit"] = "yes",
                   },
                 },
-                ["select"] = {},
+                ["parts"] = {
+                  "yes",
+                },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "yes",
-                },
+                ["args"] = {},
+                ["select"] = {},
               },
             },
           },

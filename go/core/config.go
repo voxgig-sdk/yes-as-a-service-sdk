@@ -96,7 +96,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/yes",
@@ -105,14 +104,16 @@ func MakeConfig() map[string]any {
 										"lit": "yes",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"yes",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"yes",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

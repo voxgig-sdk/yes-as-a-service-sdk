@@ -44,10 +44,6 @@ const live_runner_1 = require("../../live-runner");
 const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
-// AFTER the imports on purpose: TypeScript hoists `import` above any
-// statement in the emitted CommonJS, so a loader placed above them would
-// run only after every imported module had already been evaluated - and
-// anything reading process.env at module scope would miss these values.
 (0, utility_1.loadEnvLocal)(__dirname + '/../../../.env.local');
 (0, node_test_1.describe)('YesEntity', async () => {
     // Per-test live pacing. Delay is read from sdk-test-control.json's
@@ -66,7 +62,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [], "name": "yes", "op": { "load": { "input": "data", "name": "load", "points": [{ "active": true, "args": {}, "contract": { "id": "GET /yes", "json": "{\"operationId\":\"get_random_reason_yes_get\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{}}},\"description\":\"Successful Response\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/yes", "segments": [{ "lit": "yes" }], "select": {}, "transform": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "yes", "name__orig": "yes", "Name": "Yes", "name_": "yes", "name-": "yes", "NAME": "YES", "index$": 0 }, { "active": true, "entity": "yes", "key$": "BasicYesFlow", "kind": "basic", "name": "BasicYesFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": { "ref": "yes_ref01", "srcdatavar": "yes_ref01_data", "suffix": "_dt0" }, "match": {}, "op": "load", "spec": [], "valid": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-yes_ref01" } }], "index$": 0 }] }, 'Yes');
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": {}, "name": "yes", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /yes", "source": "openapi3", "version": 2 }, "g": {}, "k": "http", "m": "GET", "o": "/yes", "q": {}, "r": {}, "s": [{ "lit": "yes" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "yes", "name__orig": "yes", "Name": "Yes", "name_": "yes", "name-": "yes", "NAME": "YES", "index$": 0 }, { "active": true, "entity": "yes", "key$": "BasicYesFlow", "kind": "basic", "name": "BasicYesFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "yes_ref01", "srcdatavar": "yes_ref01_data", "suffix": "_dt0" }, "m": {}, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-yes_ref01" } }], "index$": 0 }] }, 'Yes', { "GET /yes": { "protocol": "http", "operationId": "get_random_reason_yes_get", "responses": { "200": { "description": "Successful Response", "content": { "application/json": { "schema": {} } } } }, "parameters": [], "securitySource": "unspecified" } });
         }
         const client = setup.client;
         const struct = setup.struct;

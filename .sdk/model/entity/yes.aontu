@@ -1,0 +1,39 @@
+# Entity: yes
+
+main: kit: entity: yes: {
+
+  alias: field: {}
+
+  name: "yes"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /yes"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/yes"
+          s: [
+            {
+              lit: "yes"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}
