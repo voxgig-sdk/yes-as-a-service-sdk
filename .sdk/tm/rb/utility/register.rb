@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 YesAsAServiceUtility.registrar = ->(u) {
   u.clean = YesAsAServiceUtilities::Clean
+  u.clean_add = YesAsAServiceUtilities::CleanAdd
+  u.clean_explain = YesAsAServiceUtilities::CleanExplain
   u.done = YesAsAServiceUtilities::Done
   u.make_error = YesAsAServiceUtilities::MakeError
   u.feature_add = YesAsAServiceUtilities::FeatureAdd

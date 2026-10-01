@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 YesAsAServiceUtility::setRegistrar(function (YesAsAServiceUtility $u): void {
     $u->clean = [YesAsAServiceClean::class, 'call'];
+    $u->clean_add = [YesAsAServiceClean::class, 'add'];
+    $u->clean_explain = [YesAsAServiceDone::class, 'clean_explain'];
     $u->done = [YesAsAServiceDone::class, 'call'];
     $u->make_error = [YesAsAServiceMakeError::class, 'call'];
     $u->feature_add = [YesAsAServiceFeatureAdd::class, 'call'];
