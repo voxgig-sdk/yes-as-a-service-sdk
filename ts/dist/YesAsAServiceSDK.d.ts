@@ -7,6 +7,19 @@ import { YesAsAServiceEntityBase } from './YesAsAServiceEntityBase';
 import { Utility } from './utility/Utility';
 import { BaseFeature } from './feature/base/BaseFeature';
 declare const stdutil: Utility;
+type DirectResult = {
+    ok: false;
+    err: any;
+    status?: undefined;
+    headers?: undefined;
+    data?: undefined;
+} | {
+    ok: boolean;
+    status: number;
+    headers: any;
+    data: any;
+    err?: any;
+};
 declare class YesAsAServiceSDK {
     _mode: string;
     _options: any;
@@ -17,32 +30,8 @@ declare class YesAsAServiceSDK {
     options(): any;
     utility(): any;
     prepare(fetchargs?: any): Promise<any>;
-    direct(fetchargs?: any): Promise<Error | {
-        ok: boolean;
-        err: any;
-        status?: undefined;
-        headers?: undefined;
-        data?: undefined;
-    } | {
-        ok: boolean;
-        status: number;
-        headers: any;
-        data: any;
-        err?: undefined;
-    }>;
-    _rawRequest(fetchargs?: any): Promise<Error | {
-        ok: boolean;
-        err: any;
-        status?: undefined;
-        headers?: undefined;
-        data?: undefined;
-    } | {
-        ok: boolean;
-        status: number;
-        headers: any;
-        data: any;
-        err?: undefined;
-    }>;
+    direct(fetchargs?: any): Promise<DirectResult>;
+    _rawRequest(fetchargs?: any): Promise<DirectResult>;
     graphql(query: string, variables?: any, ctrl?: any): Promise<any>;
     Yes(entopts?: Record<string, any>): YesEntity;
     static test(testoptsarg?: any, sdkoptsarg?: any): YesAsAServiceSDK;
@@ -55,3 +44,4 @@ declare class YesAsAServiceSDK {
 }
 declare const SDK: typeof YesAsAServiceSDK;
 export { stdutil, config, BaseFeature, YesAsAServiceEntityBase, YesAsAServiceSDK, SDK, };
+export type { DirectResult };

@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { YesAsAServiceSDK, BaseFeature, stdutil } from '../../..'
+import { YesAsAServiceSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,8 @@ describe('YesEntity', async () => {
   })
 
 
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.YES_AS_A_SERVICE_TEST_LIVE
@@ -51,7 +53,7 @@ describe('YesEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{},"name":"yes","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /yes","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/yes","q":{},"r":{},"s":[{"lit":"yes"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"yes","name__orig":"yes","Name":"Yes","name_":"yes","name-":"yes","NAME":"YES","index$":0}, {"active":true,"entity":"yes","key$":"BasicYesFlow","kind":"basic","name":"BasicYesFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"yes_ref01","srcdatavar":"yes_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-yes_ref01"}}],"index$":0}]}, 'Yes', {"GET /yes":{"protocol":"http","parameters":[]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{},"name":"yes","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /yes","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/yes","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"yes"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"yes","name__orig":"yes","Name":"Yes","name_":"yes","name-":"yes","NAME":"YES","index$":0}, {"active":true,"entity":"yes","key$":"BasicYesFlow","kind":"basic","name":"BasicYesFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"yes_ref01","srcdatavar":"yes_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-yes_ref01"}}],"index$":0}]}, 'Yes', {"GET /yes":{"protocol":"http","parameters":[]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +74,12 @@ describe('YesEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

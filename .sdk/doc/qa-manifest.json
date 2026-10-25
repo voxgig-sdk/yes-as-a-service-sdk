@@ -3,5 +3,11 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Successful Response",
+      "The FastAPI API."
+    ]
+  }
 }
